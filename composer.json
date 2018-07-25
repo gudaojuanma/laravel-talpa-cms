@@ -1,0 +1,31 @@
+{
+    "name": "gudaojuanma/laravel-talpa-cms",
+    "description": "Talpa CMS certified access laravel extension",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "gudaojuanma",
+            "email": "gudaojuanma@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/support": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gudaojuanma\\TalpaCMS\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Gudaojuanma\\TalpaCMS\\ServiceProvider"
+            ],
+            "aliases": {
+                "TalpaCMS": "Gudaojuanma\\TalpaCMS\\Facade"
+            }
+        }
+    }
+}
