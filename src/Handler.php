@@ -60,18 +60,16 @@ class Handler
     /**
      * 获取认证码
      * @param string $state
-     * @return \\Illuminate\\Http\\Response
+     * @return string
      */
-    public function getCode($state = '')
+    public function getCodeUrl($state = '')
     {
         $query = http_build_query([
             'key' => $this->key,
             'state' => $state
         ]);
 
-        $url = sprintf('%s/oauth2/code?%s', $this->host, $query);
-
-        return redirect($url);
+        return sprintf('%s/oauth2/code?%s', $this->host, $query);
     }
 
     /**
