@@ -176,7 +176,7 @@ class Handler
     {
         if(($refreshToken = Cache::get(self::REFRESH_TOKEN_CACHE_KEY))) {
             $url = sprintf('%s/oauth2/refresh', $this->host);
-            if (!($data = $this->post($url, ['refresh_token' => $refreshToken]))) {
+            if (!($data = $this->post($url, ['refresh_token' => $refreshToken, '_method' => 'PUT']))) {
                 return false;
             }
 
@@ -232,7 +232,6 @@ class Handler
         $content = curl_exec($ch);
         $errno = curl_errno($ch);
         $error = curl_error($ch);
-        Log::debug($content);
         curl_close($ch);
         if ($errno > 0) {
             Log::error($error);
